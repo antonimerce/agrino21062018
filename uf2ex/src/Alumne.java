@@ -1,4 +1,6 @@
 
+/* @author Antoni */
+
 public class Alumne {
 
 	    final int TOTAL_MODULS = 11;	/* total de mòduls del cicle */
@@ -17,24 +19,31 @@ public class Alumne {
 			this.qtat_moduls_aprovats = moduls_aprovats;
 		}
 
-		/* Diu si l'alumne és major d'edat */
+		/* Diu si l'alumne és major d'edat
+		 * @param edat variable int per ser comparada
+		 */
 		public boolean esMajorEdat() {
 			return (this.edat > 18);
 		}
 
-		/* Diu si l'alumne ha aprovat M5. Cal tenir una nota mínima de 5 i no 
-		superar el 20% d'absentisme */
+		/* Diu si l'alumne ha aprovat M5. Cal tenir una nota mínima de 5 i no superar el 20% d'absentisme
+		 * @param M5_nota variable int per ser comparada
+		 */
 		public boolean aprovaM5(int assistencia_M5) {
 			return ((this.M5_nota >= 5) && (assistencia_M5 >= 80));
 		}
 
-		/* Diu quants anys portava l'alumne matriculat en un cert any de referència */
+		/* Diu quants anys portava l'alumne matriculat en un cert any de referència
+		 * @param any_inici_cicle varable int per saber els any que porta fent el curs
+		 */
 		public int anysMatriculat(int any_referencia) {
 			return (any_referencia - this.any_inici_cicle);
 		}
 		
-		/* Cal tenir un mínim del 60% dels mòduls aprovat per a passar a segón. Això
-		  significa aprovar com a mínim 7 mòduls */
+		/* Cal tenir un mínim del 60% dels mòduls aprovat per a passar a segón. Això significa aprovar com a mínim 7 mòduls 
+		 * @param qtat_moduls_aprovats variable int per saber si passa de curs
+		 * @param TOTAL_MODULS variable int per saber si passa de curs
+		 */
 		public boolean passaASegon() {
 			
 			return (((float)this.qtat_moduls_aprovats / this.TOTAL_MODULS) >= 0.6);
